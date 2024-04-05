@@ -2388,7 +2388,7 @@ summs <- function(models, ...) {
 
   for (i in seq_along(models)) {
 
-    method_stub <- find_S3_class("summ", models[[i]], package = "jtools")
+    method_stub <- find_S3_class("summ", models[[i]], package = "jtoolp")
 
     if (!is.na(method_stub)) {
       # Get the right summ function's arguments

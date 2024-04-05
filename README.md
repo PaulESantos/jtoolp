@@ -1,17 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# jtools <img src="man/figures/logo.png" alt="" height="250px" align="right" />
+# jtoolp (jtools) <img src="man/figures/logo.png" alt="" height="250px" align="right" />
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/jtools)](https://cran.r-project.org/package=jtools)
-[![Total
-Downloads](https://cranlogs.r-pkg.org/badges/grand-total/jtools)](https://cran.r-project.org/package=jtools)
-[![CII Best
-Practices](https://bestpractices.coreinfrastructure.org/projects/2527/badge)](https://bestpractices.coreinfrastructure.org/projects/2527)
-[![R-CMD-check](https://github.com/jacob-long/jtools/workflows/R-CMD-check/badge.svg)](https://github.com/jacob-long/jtools/actions)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/jacob-long/JTools?branch=master&svg=true)](https://ci.appveyor.com/project/jacob-long/JTools)
-[![codecov](https://codecov.io/gh/jacob-long/jtools/branch/master/graph/badge.svg)](https://app.codecov.io/gh/jacob-long/jtools)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/jtoolp)](https://cran.r-project.org/package=jtoolp)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) -->
@@ -24,31 +16,22 @@ statistical purposes as well. Support for the `survey` package’s
 `svyglm` objects as well as weighted regressions is a common theme
 throughout.
 
-**Notice:** As of `jtools` version 2.0.0, all functions dealing with
-interactions (e.g., `interact_plot()`, `sim_slopes()`,
-`johnson_neyman()`) have been moved to a new package, aptly named
-[`interactions`](https://interactions.jacob-long.com).
+**Notice:** esta es una version de `jtools` presenta una modificacion de
+la funciona `plot_summs()`
 
 ## Installation
 
-For the most stable version, simply install from CRAN.
+If you want to install you can download from Github. To do that you will
+need to have `pak` installed if you don’t already:
 
 ``` r
-install.packages("jtools")
-```
-
-If you want the latest features and bug fixes then you can download from
-Github. To do that you will need to have `devtools` installed if you
-don’t already:
-
-``` r
-install.packages("devtools")
+install.packages("pak")
 ```
 
 Then install the package from Github.
 
 ``` r
-devtools::install_github("jacob-long/jtools")
+pak::pak("PaulESantos/jtoolp")
 ```
 
 To see what features are on the roadmap, check the issues section of the
@@ -132,7 +115,7 @@ summ(fit, scale = TRUE, vifs = TRUE, part.corr = TRUE, confint = TRUE, pvals = F
     #> year                 0.05   -1.18    1.28     0.08   1.24        0.00     0.00
     #> ------------------------------------------------------------------------------
     #> 
-    #> Continuous predictors are mean-centered and scaled by 1 s.d.
+    #> Continuous predictors are mean-centered and scaled by 1 s.d. The outcome variable remains in its original units.
 
 Cluster-robust standard errors:
 
@@ -181,7 +164,34 @@ coef_names <- c("Budget" = "log(budget)", "US Gross" = "log(us_gross)",
 export_summs(fit, fit_b, fit_c, robust = "HC3", coefs = coef_names)
 ```
 
-<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:unnamed-chunk-6">
+    #> Registered S3 methods overwritten by 'broom':
+    #>   method            from  
+    #>   tidy.glht         jtoolp
+    #>   tidy.summary.glht jtoolp
+
+    #> Registered S3 methods overwritten by 'jtools':
+    #>   method              from  
+    #>   family.rq           jtoolp
+    #>   getCall.summ        jtoolp
+    #>   glance.summ.glm     jtoolp
+    #>   glance.summ.merMod  jtoolp
+    #>   glance.summ.svyglm  jtoolp
+    #>   nobs.summ           jtoolp
+    #>   nobs.summ.rq        jtoolp
+    #>   print.md_table      jtoolp
+    #>   print.pf_sv_test    jtoolp
+    #>   print.robust_info   jtoolp
+    #>   print.summ.glm      jtoolp
+    #>   print.summ.lm       jtoolp
+    #>   print.summ.merMod   jtoolp
+    #>   print.summ.rq       jtoolp
+    #>   print.summ.svyglm   jtoolp
+    #>   print.svycor        jtoolp
+    #>   print.svysd         jtoolp
+    #>   print.weights_tests jtoolp
+    #>   print.wgttest       jtoolp
+
+<table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <col>
 <col>
 <col>
@@ -200,7 +210,7 @@ Model 3
 </th>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Budget
 </th>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -214,88 +224,88 @@ Budget
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </th>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (0.44)   
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (0.62)   
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (0.67)   
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 US Gross
 </th>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
        
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 3.96 \*\*\*
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 3.85 \*\*\*
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </th>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
        
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (0.51)   
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (0.48)   
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Runtime (Hours)
 </th>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
        
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
        
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 14.29 \*\*\*
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </th>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
        
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
        
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (1.63)   
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Constant
 </th>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 105.29 \*\*\*
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 81.84 \*\*\*
 </td>
-<td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 83.35 \*\*\*
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </th>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 (7.65)   
@@ -308,7 +318,7 @@ Constant
 </td>
 </tr>
 <tr>
-<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 N
 </th>
 <td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -348,20 +358,28 @@ In RMarkdown documents, using `export_summs()` and the chunk option
 output. Using the `to.word = TRUE` argument will create a Microsoft Word
 document with the table in it.
 
-### Plotting regression summaries (`plot_coefs()` and `plot_summs()`)
+### Plotting regression summaries (`plot_coefs2()` and `plot_summs2()`)
 
 Another way to get a quick gist of your regression analysis is to plot
 the values of the coefficients and their corresponding uncertainties
-with `plot_summs()` (or the closely related `plot_coefs()`). Like with
+with `plot_summs2()` (or the closely related `plot_coefs2()`). Like with
 `export_summs()`, you can still get your scaled models and robust
 standard errors.
 
 ``` r
 coef_names <- coef_names[1:3] # Dropping intercept for plots
-plot_summs(fit, fit_b, fit_c, robust = "HC3", coefs = coef_names)
+plot_summs2(fit, fit_b, fit_c, robust = "HC3", coefs = coef_names,
+            plot.distributions = TRUE, alpha = 0.7)
 ```
 
 ![](man/figures/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+plot_summs2(fit, fit_b, fit_c, robust = "HC3", coefs = coef_names,
+            plot.distributions = TRUE, alpha = 0.5)
+```
+
+![](man/figures/unnamed-chunk-7-2.png)<!-- -->
 
 And since you get a `ggplot` object in return, you can tweak and theme
 as you wish.
@@ -370,7 +388,7 @@ Another way to visualize the uncertainty of your coefficients is via the
 `plot.distributions` argument.
 
 ``` r
-plot_summs(fit_c, robust = "HC3", coefs = coef_names, plot.distributions = TRUE)
+plot_summs2(fit_c, robust = "HC3", coefs = coef_names, plot.distributions = TRUE, alpha = 0.5)
 ```
 
 ![](man/figures/unnamed-chunk-8-1.png)<!-- -->
@@ -393,10 +411,12 @@ variable alongside the observed data.
 effect_plot(fit_c, pred = runtime, interval = TRUE, plot.points = TRUE)
 ```
 
-    #> Using data movies from global environment. This could cause incorrect results if movies has been altered since the model was fit.
-    #> You can manually provide the data to the "data =" argument.
+    #> Using data movies from global environment. This could cause incorrect
+    #> results if movies has been altered since the model was fit. You can
+    #> manually provide the data to the "data =" argument.
 
-    #> Warning: Removed 10 rows containing missing values (geom_point).
+    #> Warning: Removed 10 rows containing missing values or values outside the scale range
+    #> (`geom_point()`).
 
 ![](man/figures/unnamed-chunk-9-1.png)<!-- -->
 
@@ -408,8 +428,9 @@ after accounting for effects of control variables.
 effect_plot(fit_c, pred = runtime, interval = TRUE, partial.residuals = TRUE)
 ```
 
-    #> Using data movies from global environment. This could cause incorrect results if movies has been altered since the model was fit.
-    #> You can manually provide the data to the "data =" argument.
+    #> Using data movies from global environment. This could cause incorrect
+    #> results if movies has been altered since the model was fit. You can
+    #> manually provide the data to the "data =" argument.
 
 ![](man/figures/unnamed-chunk-10-1.png)<!-- -->
 
@@ -420,20 +441,20 @@ much more are supported.
 
 There are several other things that might interest you.
 
--   `gscale()`: Scale and/or mean-center data, including `svydesign`
-    objects
--   `scale_mod()` and `center_mod()`: Re-fit models with scaled and/or
-    mean-centered data
--   `wgttest()` and `pf_sv_test()`, which are combined in
-    `weights_tests()`: Test the ignorability of sample weights in
-    regression models
--   `svycor()`: Generate correlation matrices from `svydesign` objects
--   `theme_apa()`: A mostly APA-compliant `ggplot2` theme
--   `theme_nice()`: A nice `ggplot2` theme
--   `add_gridlines()` and `drop_gridlines()`: `ggplot2` theme-changing
-    convenience functions
--   `make_predictions()`: an easy way to generate hypothetical predicted
-    data from your regression model for plotting or other purposes.
+- `gscale()`: Scale and/or mean-center data, including `svydesign`
+  objects
+- `scale_mod()` and `center_mod()`: Re-fit models with scaled and/or
+  mean-centered data
+- `wgttest()` and `pf_sv_test()`, which are combined in
+  `weights_tests()`: Test the ignorability of sample weights in
+  regression models
+- `svycor()`: Generate correlation matrices from `svydesign` objects
+- `theme_apa()`: A mostly APA-compliant `ggplot2` theme
+- `theme_nice()`: A nice `ggplot2` theme
+- `add_gridlines()` and `drop_gridlines()`: `ggplot2` theme-changing
+  convenience functions
+- `make_predictions()`: an easy way to generate hypothetical predicted
+  data from your regression model for plotting or other purposes.
 
 Details on the arguments can be accessed via the R documentation
 (`?functionname`). There are now vignettes documenting just about

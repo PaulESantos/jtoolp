@@ -153,6 +153,7 @@ plot_summs2(fit, fit_b, fit_c, robust = "HC3", coefs = coef_names,
 plot_summs2(fit, fit_b, fit_c, robust = "HC3", coefs = coef_names,
             plot.distributions = TRUE, alpha = 0.5)
 
+
 ```
 
 And since you get a `ggplot` object in return, you can tweak and theme as

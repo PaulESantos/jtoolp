@@ -50,3 +50,5 @@ VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Depends: 
     R (>= 3.5.0)
+URL: https://github.com/PaulESantos/jtoolp
+BugReports: https://github.com/PaulESantos/jtoolp/issues
